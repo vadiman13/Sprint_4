@@ -3,6 +3,7 @@ from pages.base_page import BasePage
 from locators.locators import OrderPageLocators, AboutRentLocators
 from data.urls import TestUrls
 from data.generators import GeneratedData
+from data.data import InvalidAdress
 
 
 class OrderPage(BasePage):
@@ -21,6 +22,10 @@ class OrderPage(BasePage):
     def click_on_button_forward_for_validate_error(self):
         self.click_on_element(OrderPageLocators.ORDER_CONTINUE_BUTTON)
         self.find_element_located(OrderPageLocators.VALIDATE_ERROR_FIRST_NAME)
+
+    @allure.step('Заполнить поле "Адрес: куда привезти заказ" невалидным значением')
+    def fill_adress_invalid_value(self, invalid_delivery_address=InvalidAdress.invalid_delivery_address):
+        self.add_value(OrderPageLocators.DELIVERY_ADDRESS_INPUT, invalid_delivery_address)
 
     @allure.step('Заполнить форму "Для кого самокат"')
     def fill_client_info(self, first_name=GeneratedData.generate_first_name(),

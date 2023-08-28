@@ -53,4 +53,4 @@ class AboutRentLocators:
     BODY_ORDER_BUTTON = By.XPATH, ".//button[contains(@class, 'Button_Middle__1CSJM')and text() = 'Заказать']"
     HEADING_CONFIRMATION_MODAL = By.XPATH, ".//div[text() = 'Хотите оформить заказ?']"
     YES_BUTTON_MODAL = By.XPATH, ".//button[text() = 'Да']"
-    NO_BUTTON_MODAL = By.XPATH, ".//button[text() = 'Да']"
+    NO_BUTTON_MODAL = By.XPATH, ".//button[text() = 'Нет']"

@@ -36,10 +36,11 @@ class TestOrderPage:
         assert order_page.find_text(OrderPageLocators.VALIDATE_ERROR_SECOND_NAME) == ExT.messege_validate_second_name,  'Не отображена ошибка валидации'
 
     @allure.title('Проверка валидации поля "Адрес: куда привезти заказ"')
-    @allure.description('Поле "Адрес: куда привезти заказ" не заполнено')
+    @allure.description('Поле "Адрес: куда привезти заказ" заполнено некорректно')
     def test_validate_error_by_input_delivery_address(self, browser):
         order_page = OrderPage(browser)
         order_page.open_order_url()
+        order_page.fill_adress_invalid_value()
         order_page.click_on_button_forward_for_validate_error()
         assert order_page.find_text(OrderPageLocators.VALIDATE_ERROR_DELIVERY_ADDRESS) == ExT.messege_validate_delivery_address,  'Не отображена ошибка валидации'
 
@@ -50,6 +51,8 @@ class TestOrderPage:
         order_page.open_order_url()
         order_page.click_on_button_forward_for_validate_error()
         assert order_page.find_text(OrderPageLocators.VALIDATE_ERROR_METRO_STATION) == ExT.messege_validate_metro_station, 'Не отображена ошибка валидации'
+
+
 
     @allure.title('Проверка валидации поля "Номера телефона"')
     @allure.description('Поле "Номера телефона" не заполнено')

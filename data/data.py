@@ -30,3 +30,7 @@ class ExpectedText:
     messege_validate_metro_station = 'Выберите станцию'
     messege_validate_phone_number = 'Введите корректный номер'
     messege_validate_first_name = 'Введите корректное имя'
+
+
+class InvalidAdress:
+    invalid_delivery_address = 'МСК'
